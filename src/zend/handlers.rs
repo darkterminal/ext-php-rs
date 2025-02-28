@@ -246,7 +246,7 @@ impl ZendObjectHandlers {
                                 }
                             } else {
                                 #[allow(clippy::unnecessary_mut_passed)]
-                                if zend_is_true(&mut zv) == 1 {
+                                if zend_is_true(&mut zv) {
                                     return Ok(true);
                                 }
                             }
