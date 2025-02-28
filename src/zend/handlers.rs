@@ -242,12 +242,12 @@ impl ZendObjectHandlers {
                             if #[cfg(php84)] {
                                 #[allow(clippy::unnecessary_mut_passed)]
                                 if zend_is_true(&mut zv) {
-                                    return Ok(1);
+                                    return Ok(true);
                                 }
                             } else {
                                 #[allow(clippy::unnecessary_mut_passed)]
                                 if zend_is_true(&mut zv) == 1 {
-                                    return Ok(1);
+                                    return Ok(true);
                                 }
                             }
                         }
