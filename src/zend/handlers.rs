@@ -237,17 +237,17 @@ impl ZendObjectHandlers {
                     if let Some(val) = prop {
                         let mut zv = Zval::new();
                         val.get(self_, &mut zv)?;
-
+                
                         cfg_if::cfg_if! {
                             if #[cfg(php84)] {
                                 #[allow(clippy::unnecessary_mut_passed)]
-                                if zend_is_true(&mut zv) {
-                                    return Ok(true);
+                                if zend_is_true(&mut zv) != 0 {
+                                    return Ok(1);
                                 }
                             } else {
                                 #[allow(clippy::unnecessary_mut_passed)]
-                                if zend_is_true(&mut zv) {
-                                    return Ok(true);
+                                if zend_is_true(&mut zv) != 0 {
+                                    return Ok(1);
                                 }
                             }
                         }
